@@ -1,0 +1,8 @@
+{
+  "name": "Animasyonlu Dashboard Kedisi",
+  "description": "Fareyi takip eden, oturan, gezinen ve miyavlayan interaktif sanal kedi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
