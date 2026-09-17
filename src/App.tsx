@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Settings, X } from 'lucide-react';
+import { Cat, X } from 'lucide-react';
 
 import {
   DashboardCatOverlay,
@@ -27,9 +27,9 @@ export default function App() {
         onClick={() => setSettingsOpen(true)}
         aria-label="Kedi ayarlarını aç"
         title="Kedi ayarları"
-        className="fixed right-4 top-4 z-[60] grid h-8 w-8 place-items-center rounded-full border border-black/[0.08] bg-transparent text-[#7f8994] transition-colors hover:border-black/[0.14] hover:bg-white/35 hover:text-[#626d78] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/15"
+        className="fixed right-4 top-4 z-[60] flex h-7 w-7 items-center justify-center rounded-full border border-black bg-black text-[#eafda8] transition-all hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
       >
-        <Settings className="h-[15px] w-[15px]" strokeWidth={1.7} />
+        <Cat className="h-4 w-4 stroke-[2.5]" />
       </button>
 
       <DashboardCatOverlay visible />
