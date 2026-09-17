@@ -25,11 +25,11 @@ export default function App() {
       <button
         type="button"
         onClick={() => setSettingsOpen(true)}
-        aria-label="Kedi ayarlarını aç"
-        title="Kedi ayarları"
-        className="fixed right-4 top-4 z-[60] flex h-7 w-7 items-center justify-center rounded-full border border-black bg-black text-[#eafda8] transition-all hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+        aria-label="Open cat settings"
+        title="Cat settings"
+        className="fixed right-4 top-4 z-[60] flex h-14 w-14 items-center justify-center rounded-full border border-black bg-black text-[#eafda8] transition-all hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
       >
-        <Cat className="h-4 w-4 stroke-[2.5]" />
+        <Cat className="h-8 w-8 stroke-[2.5]" />
       </button>
 
       <DashboardCatOverlay visible />
@@ -43,13 +43,13 @@ export default function App() {
         >
           <section
             data-kedi-settings
-            aria-label="Kedi ayarları"
+            aria-label="Cat settings"
             className="relative h-[min(92vh,900px)] w-full max-w-6xl overflow-hidden rounded-[2rem] border border-black/[0.08] bg-[#f6f5f1] shadow-2xl"
           >
             <button
               type="button"
               onClick={() => setSettingsOpen(false)}
-              aria-label="Kedi ayarlarını kapat"
+              aria-label="Close cat settings"
               className="absolute right-4 top-4 z-20 grid h-9 w-9 place-items-center rounded-full border border-black/10 bg-white/90 text-gray-500 shadow-sm transition-colors hover:bg-white hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/15"
             >
               <X className="h-4 w-4" strokeWidth={1.8} />

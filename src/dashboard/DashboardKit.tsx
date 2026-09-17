@@ -40,9 +40,9 @@ export const DEFAULT_DASHBOARD_CAT_SETTINGS: DashboardCatSettings = {
   colorTheme: 'orange',
   accessory: 'none',
   phrases: [
-    { id: '1', text: 'Miyav!', timeSec: 5 },
+    { id: '1', text: 'Meow!', timeSec: 5 },
     { id: '2', text: 'Mrrr...', timeSec: 15 },
-    { id: '3', text: 'Canım sıkıldı!', timeSec: 30 },
+    { id: '3', text: "I'm bored!", timeSec: 30 },
   ],
 };
 
@@ -220,7 +220,7 @@ export function DashboardCatSettingsPanel() {
 
   const addPhrase = () => {
     updateSettings({
-      phrases: [...settings.phrases, { id: createId(), text: 'Miyav!', timeSec: 10 }],
+      phrases: [...settings.phrases, { id: createId(), text: 'Meow!', timeSec: 10 }],
     });
   };
 
@@ -242,9 +242,9 @@ export function DashboardCatSettingsPanel() {
               <Cat className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-[9px] font-black uppercase tracking-[0.16em] text-gray-400">Yönetim eklentisi</p>
-              <h1 className="text-2xl font-black tracking-tight text-gray-950">Kedi Ayarları</h1>
-              <p className="mt-1 text-[10px] font-semibold text-gray-500">Ayarlar otomatik kaydedilir ve çalışan kediye anında uygulanır.</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.16em] text-gray-400">Dashboard add-on</p>
+              <h1 className="text-2xl font-black tracking-tight text-gray-950">Cat Settings</h1>
+              <p className="mt-1 text-[10px] font-semibold text-gray-500">Settings are saved automatically and applied to the active cat instantly.</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -254,7 +254,7 @@ export function DashboardCatSettingsPanel() {
               className="flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-[10px] font-black text-gray-600 hover:border-black/20"
             >
               <RotateCcw className="h-3.5 w-3.5" />
-              Varsayılana dön
+              Reset defaults
             </button>
             <button
               type="button"
@@ -265,7 +265,7 @@ export function DashboardCatSettingsPanel() {
                 settings.active ? 'bg-black text-[#eafda8]' : 'bg-gray-200 text-gray-500'
               }`}
             >
-              {settings.active ? 'Kedi aktif' : 'Kedi pasif'}
+              {settings.active ? 'Cat active' : 'Cat inactive'}
               <span className={`h-5 w-9 rounded-full p-0.5 ${settings.active ? 'bg-[#eafda8]' : 'bg-white'}`}>
                 <span
                   className={`block h-4 w-4 rounded-full transition-transform ${
@@ -281,17 +281,17 @@ export function DashboardCatSettingsPanel() {
           <section className="rounded-[2rem] border border-black/[0.07] bg-white/90 p-5 shadow-sm">
             <div className="mb-5 flex items-center gap-2 border-b border-black/[0.06] pb-4">
               <Palette className="h-4 w-4 text-[#d96f4d]" />
-              <h2 className="text-[13px] font-black text-gray-950">Görünüm</h2>
+              <h2 className="text-[13px] font-black text-gray-950">Appearance</h2>
             </div>
 
             <div className="space-y-6">
               <div>
-                <span className="mb-2 block text-[9px] font-black uppercase tracking-[0.12em] text-gray-400">Kedi tipi</span>
+                <span className="mb-2 block text-[9px] font-black uppercase tracking-[0.12em] text-gray-400">Cat type</span>
                 <div className="grid grid-cols-3 gap-2">
                   {([
-                    ['default', 'Klasik'],
-                    ['garfield', 'Şişman'],
-                    ['cute', 'Minnoş'],
+                    ['default', 'Classic'],
+                    ['garfield', 'Chubby'],
+                    ['cute', 'Cute'],
                   ] as const).map(([value, label]) => (
                     <ChoiceButton key={value} active={settings.catType === value} onClick={() => updateSettings({ catType: value })}>
                       {label}
@@ -301,14 +301,14 @@ export function DashboardCatSettingsPanel() {
               </div>
 
               <div>
-                <span className="mb-2 block text-[9px] font-black uppercase tracking-[0.12em] text-gray-400">Renk</span>
+                <span className="mb-2 block text-[9px] font-black uppercase tracking-[0.12em] text-gray-400">Color</span>
                 <div className="grid grid-cols-5 gap-2">
                   {([
-                    ['orange', 'Sarı', '#f48b29'],
-                    ['calico', 'Benekli', '#e69c30'],
-                    ['gray', 'Gri', '#8a94a0'],
-                    ['black', 'Siyah', '#2a2a2a'],
-                    ['white', 'Beyaz', '#f0f0f0'],
+                    ['orange', 'Orange', '#f48b29'],
+                    ['calico', 'Calico', '#e69c30'],
+                    ['gray', 'Gray', '#8a94a0'],
+                    ['black', 'Black', '#2a2a2a'],
+                    ['white', 'White', '#f0f0f0'],
                   ] as const).map(([value, label, color]) => (
                     <button
                       key={value}
@@ -328,14 +328,14 @@ export function DashboardCatSettingsPanel() {
 
               <div>
                 <span className="mb-2 flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.12em] text-gray-400">
-                  <Glasses className="h-3.5 w-3.5" /> Aksesuar
+                  <Glasses className="h-3.5 w-3.5" /> Accessory
                 </span>
                 <div className="grid grid-cols-4 gap-2">
                   {([
-                    ['none', 'Yok'],
-                    ['hat', 'Şapka'],
-                    ['glasses', 'Gözlük'],
-                    ['bowtie', 'Papyon'],
+                    ['none', 'None'],
+                    ['hat', 'Hat'],
+                    ['glasses', 'Glasses'],
+                    ['bowtie', 'Bow tie'],
                   ] as const).map(([value, label]) => (
                     <ChoiceButton key={value} active={settings.accessory === value} onClick={() => updateSettings({ accessory: value })}>
                       {label}
@@ -349,13 +349,13 @@ export function DashboardCatSettingsPanel() {
           <section className="rounded-[2rem] border border-black/[0.07] bg-white/90 p-5 shadow-sm">
             <div className="mb-5 flex items-center gap-2 border-b border-black/[0.06] pb-4">
               <SlidersHorizontal className="h-4 w-4 text-[#d96f4d]" />
-              <h2 className="text-[13px] font-black text-gray-950">Hareket ayarları</h2>
+              <h2 className="text-[13px] font-black text-gray-950">Movement settings</h2>
             </div>
 
             <div className="space-y-5">
               <label className="block">
                 <span className="mb-2 flex justify-between text-[10px] font-black text-gray-700">
-                  Kedi büyüklüğü <strong className="text-[#cf6747]">{settings.scale.toFixed(1)}x</strong>
+                  Cat size <strong className="text-[#cf6747]">{settings.scale.toFixed(1)}x</strong>
                 </span>
                 <input
                   type="range"
@@ -370,7 +370,7 @@ export function DashboardCatSettingsPanel() {
 
               <label className="block">
                 <span className="mb-2 flex justify-between text-[10px] font-black text-gray-700">
-                  Maksimum hız <strong className="text-[#cf6747]">{settings.speed}</strong>
+                  Maximum speed <strong className="text-[#cf6747]">{settings.speed}</strong>
                 </span>
                 <input
                   type="range"
@@ -385,14 +385,14 @@ export function DashboardCatSettingsPanel() {
 
               <Toggle
                 checked={settings.swattingEnabled}
-                label="Patiyle oynama"
-                description="Fare kediye yaklaştığında pati hareketini çalıştırır."
+                label="Paw interaction"
+                description="Triggers a paw swipe when the pointer gets close to the cat."
                 onChange={() => updateSettings({ swattingEnabled: !settings.swattingEnabled })}
               />
               <Toggle
                 checked={settings.roamingEnabled}
-                label="Serbest dolaşma"
-                description="Kedi boşta kaldığında yönetim ekranının altında kendi kendine gezinir."
+                label="Free roaming"
+                description="The cat wanders along the bottom of the screen while idle."
                 onChange={() => updateSettings({ roamingEnabled: !settings.roamingEnabled })}
               />
             </div>
@@ -402,8 +402,8 @@ export function DashboardCatSettingsPanel() {
         <section className="rounded-[2rem] border border-black/[0.07] bg-white/90 p-5 shadow-sm">
           <div className="mb-4 flex items-center justify-between gap-3 border-b border-black/[0.06] pb-4">
             <div>
-              <h2 className="text-[13px] font-black text-gray-950">Kedi sözleri</h2>
-              <p className="mt-1 text-[10px] font-semibold text-gray-400">Kedi hareketsiz kaldığında süreye göre gösterilecek mesajlar.</p>
+              <h2 className="text-[13px] font-black text-gray-950">Cat phrases</h2>
+              <p className="mt-1 text-[10px] font-semibold text-gray-400">Messages shown after the cat stays idle for the selected amount of time.</p>
             </div>
             <button
               type="button"
@@ -411,7 +411,7 @@ export function DashboardCatSettingsPanel() {
               className="flex items-center gap-2 rounded-full bg-black px-4 py-2 text-[10px] font-black text-[#eafda8]"
             >
               <Plus className="h-3.5 w-3.5" />
-              Söz ekle
+              Add phrase
             </button>
           </div>
 
@@ -422,7 +422,7 @@ export function DashboardCatSettingsPanel() {
                   value={phrase.text}
                   onChange={(event) => updatePhrase(phrase.id, { text: event.target.value })}
                   className="min-w-0 flex-1 rounded-xl border border-black/[0.07] bg-white px-3 py-2 text-[11px] font-bold outline-none focus:border-black/20"
-                  placeholder="Kedinin sözü"
+                  placeholder="Cat phrase"
                 />
                 <div className="flex items-center rounded-xl border border-black/[0.07] bg-white px-2">
                   <input
@@ -432,13 +432,13 @@ export function DashboardCatSettingsPanel() {
                     onChange={(event) => updatePhrase(phrase.id, { timeSec: Math.max(1, Number(event.target.value) || 1) })}
                     className="w-12 bg-transparent py-2 text-center text-[11px] font-black outline-none"
                   />
-                  <span className="text-[9px] font-black text-gray-400">sn</span>
+                  <span className="text-[9px] font-black text-gray-400">s</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => removePhrase(phrase.id)}
                   className="grid h-9 w-9 place-items-center rounded-full text-gray-400 hover:bg-red-50 hover:text-red-500"
-                  aria-label="Sözü sil"
+                  aria-label="Delete phrase"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
